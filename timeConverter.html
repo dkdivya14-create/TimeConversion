@@ -1,0 +1,32 @@
+<script>
+    function timeConverter(str){
+    let newString=str.split(':')
+    let timeRep=newString[2].split('0')
+    let a=Number(newString[0]);
+    let ct='';
+    if (timeRep[2]=='PM'){
+        if(a==12){
+            ct=`${a}:${newString[1]}:00`
+            return(ct);
+        }
+        else{
+            let t=a+12;
+            ct=`${t}:${newString[1]}:00`
+            return(ct);
+        }
+    }
+    if (timeRep[2]=='AM'){
+        if(a!=12){
+            ct=`${a}:${newString[1]}:00`
+            return(ct);
+        }
+        else{
+            let t=a-12;
+            ct=`${t}:${newString[1]}:00`
+            return(ct);
+        }
+    }
+}
+let result=timeConverter('12:03:00PM');
+console.log(result);
+</script>
